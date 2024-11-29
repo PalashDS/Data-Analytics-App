@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-analytics-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: data-analytics-app
+  template:
+    metadata:
+      labels:
+        app: data-analytics-app
+    spec:
+      containers:
+        - name: data-analytics-app
+          image: <palashds>/data-analytics-app:latest
+          ports:
+            - containerPort: 5000
